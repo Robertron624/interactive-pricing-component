@@ -30,9 +30,10 @@
         100K PAGEVIEWS
       </p>
       <div class="slider">
+        <input step="5000" type="range" min="1000" max="1000000" value="100000" id="myRange">
       </div>
       <h2 class="price-per-time">
-        <span class="price">$16.00</span> / month
+        <span class="price">$16.00</span>  <span class="time"> / month</span>
       </h2>
       <div class="toggle-wrapper">
         <p class="toggle-label">
@@ -46,31 +47,63 @@
           Yearly Billing
         </p>
         <p class="discount">
-          25% discount
+          -25%
         </p>
+      </div>
+      <div class="features">
+        <ul>
+          <li>
+            <img src="./images/icon-check.svg" alt="check icon">
+            Unlimited websites
+          </li>
+          <li>
+            <img src="./images/icon-check.svg" alt="check icon">
+            100% data ownership
+          </li>
+          <li>
+            <img src="./images/icon-check.svg" alt="check icon">
+            Email reports
+          </li>
+        </ul>
+        <button>
+          Start my trial
+        </button>
       </div>
     </section>
 
   </main>
 
-  <!-- Simple, traffic-based pricing
-  Sign-up for our 30-day trial. No credit card required. 
+  <script>
+    const sliderInput = document.getElementById("myRange");
+    const price = document.querySelector(".price");
+    const pageviews = document.querySelector(".pageviews");
 
-  Pageviews
-  $ /month
+    sliderInput.oninput = function() {
+      let value = sliderInput.value;
+      let priceValue = 0;
+      let discount = 0;
 
-  Monthly Billing
-  Yearly Billing 25% discount
+      if (value >= 1000 && value < 50000) {
+        priceValue = 8;
+      } else if (value >= 50000 && value < 100000) {
+        priceValue = 12;
+      } else if (value >= 100000 && value < 500000) {
+        priceValue = 16;
+      } else if (value >= 500000 && value < 1000000) {
+        priceValue = 24;
+      }
 
-  Unlimited websites
-  100% data ownership
-  Email reports
+      if (document.querySelector(".switch input").checked) {
+        priceValue = priceValue * 12;
+        discount = priceValue * 0.25;
+      }
 
-  Start my trial -->
-  
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
+      pageviews.innerHTML = `${value} PAGEVIEWS`;
+
+      price.innerHTML = `$${priceValue.toFixed(2)}`;
+      document.querySelector(".discount").innerHTML = `-$${discount.toFixed(2)}`;
+    }
+
+  </script>
 </body>
 </html>

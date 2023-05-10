@@ -30,7 +30,7 @@
         100K PAGEVIEWS
       </p>
       <div class="slider">
-        <input step="5000" type="range" min="1000" max="1000000" value="100000" id="myRange">
+        <input step="1" type="range" min="0" max="4" value="2" id="myRange">
       </div>
       <h2 class="price-per-time">
         <span class="price">$16.00</span>  <span class="time"> / month</span>
@@ -74,34 +74,33 @@
   </main>
 
   <script>
+
+  const prices = [8, 12, 16, 24, 36]
+  const pageViewValues = [10, 50, 100, 500, "1M"]
+
+
     const sliderInput = document.getElementById("myRange");
     const price = document.querySelector(".price");
     const pageviews = document.querySelector(".pageviews");
+    const discountElement = document.querySelector(".discount")
 
     sliderInput.oninput = function() {
       let value = sliderInput.value;
       let priceValue = 0;
       let discount = 0;
 
-      if (value >= 1000 && value < 50000) {
-        priceValue = 8;
-      } else if (value >= 50000 && value < 100000) {
-        priceValue = 12;
-      } else if (value >= 100000 && value < 500000) {
-        priceValue = 16;
-      } else if (value >= 500000 && value < 1000000) {
-        priceValue = 24;
+      price.innerHTML = "$" + prices[value] + ".00";
+
+      let pageViewToDisplay = pageViewValues[value];
+
+      if(typeof pageViewToDisplay === "number") {
+        pageViewToDisplay += "K PAGEVIEWS";
+      }
+      else {
+        pageViewToDisplay = pageViewToDisplay + " PAGEVIEWS";
       }
 
-      if (document.querySelector(".switch input").checked) {
-        priceValue = priceValue * 12;
-        discount = priceValue * 0.25;
-      }
-
-      pageviews.innerHTML = `${value} PAGEVIEWS`;
-
-      price.innerHTML = `$${priceValue.toFixed(2)}`;
-      document.querySelector(".discount").innerHTML = `-$${discount.toFixed(2)}`;
+      pageviews.innerHTML = pageViewToDisplay;
     }
 
   </script>

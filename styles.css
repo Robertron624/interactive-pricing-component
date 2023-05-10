@@ -185,11 +185,15 @@ section.intro {
     width: 90%;
     height: 8px;
     border-radius: 5px;
-    background: var(--light-grayish-blue-bar);
+    background: red;
     outline: none;
     opacity: 0.7;
+    accent-color: var(--soft-cyan);
 }
 
+.slider input[type=range]::-webkit-slider-thumb{
+    width: 80px;
+}
 
 
 .toggle-wrapper {
@@ -256,3 +260,4 @@ h2.price-per-time .time {
     cursor: pointer;
     transition: all .3s ease-in-out;
 }
+

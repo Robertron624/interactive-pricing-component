@@ -190,6 +190,11 @@ section.intro {
     width: 90%;
 }
 
+.slider input[type="range"]:active {
+    cursor: grabbing;
+}
+
+
 /* Chrome, Safari, Opera and Edge Chromium styles */
 
 .slider input[type="range"]::-webkit-slider-runnable-track {
@@ -246,6 +251,7 @@ section.intro {
     width: 48px;
     height: 25px;
     position: relative;
+    cursor: pointer;
 }
 
 /* Hide Switch Styles */
@@ -349,3 +355,38 @@ h2.price-per-time .time {
     transition: all .3s ease-in-out;
 }
 
+@media screen and (min-width: 768px) {
+    .intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro p {
+        max-width: unset;
+        font-size: 1.2rem;
+    }
+
+    .pricing-wrapper {
+        max-width: 600px;
+    }
+
+    .features {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem 2rem 0;
+    }
+
+    .features ul {
+        margin-bottom: 0;
+    }
+
+    .features ul li {
+        justify-content: flex-start;
+    }
+
+    .features button {
+        width: 10rem;
+        height: 3rem;
+        padding: .7rem 0rem;
+        margin: auto 0;
+    }
+}

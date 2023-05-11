@@ -103,6 +103,15 @@
       pageviews.innerHTML = pageViewToDisplay;
     }
 
+    sliderInput?.addEventListener('input', (e) => {
+    if (e.target) {
+
+        const sliderPercentage = e.target.value * 25;
+
+        sliderInput.style.setProperty('--p', sliderPercentage + "%");
+    }
+});
+
   </script>
 </body>
 </html>

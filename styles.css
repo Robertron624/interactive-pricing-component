@@ -181,15 +181,6 @@ section.intro {
     margin: 1.5rem 0;
 }
 
-/* .slider input {
-    width: 90%;
-    height: 8px;
-    border-radius: 5px;
-    background: red;
-    outline: none;
-    opacity: 0.7;
-    accent-color: var(--soft-cyan);
-} */
 
 /*Range reset*/
 .slider input[type="range"] {
@@ -216,20 +207,20 @@ section.intro {
     /* Override default look */
     appearance: none;
     /* Centers thumb on the track */
-    margin-top: -20px;
+    margin-top: -18px;
 
     /*custom styles*/
     background: url('images/icon-slider.svg') no-repeat center;
     background-color: var(--strong-cyan);
-    height: 3rem;
-    width: 3rem;
+    height: 2.5rem;
+    width: 2.5rem;
     border-radius: 50%;
     box-shadow: 0 10px 20px 9px var(--soft-cyan);
 }
 
-
 .toggle-wrapper {
     display: flex;
+    align-items: center;
     gap: 1rem;
     color: var(--grayish-blue);
     font-size: .75rem;
@@ -237,6 +228,71 @@ section.intro {
     margin-top: 3rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--grayish-blue);
+}
+
+.toggle-wrapper .switch .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.toggle-wrapper .switch {
+    width: 48px;
+    height: 25px;
+    position: relative;
+}
+
+/* Hide Switch Styles */
+.toggle-wrapper .switch input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Toggler styles */
+.toggle-wrapper .switch .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--light-grayish-blue-bg);
+    border-radius: 3rem;
+    transition: all .2s ease-in-out;
+}
+
+.toggler--on {
+    background-color: var(--strong-cyan) !important;
+}
+
+
+.toggler--on::after {
+    left: unset !important;
+    right: 4px;
+}
+
+.toggle-wrapper .switch .toggler::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    width: 17px;
+    height: 17px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* yearly label and discount container */
+.label-and-dicount {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
 }
 
 .toggle-wrapper .discount {

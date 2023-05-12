@@ -135,9 +135,10 @@ body {
 
 main {
     width: 100%;
-    max-width: 1440px;
     margin: 0 auto;
     background-image: url(../images/bg-pattern.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     text-align: center;
 }
 
@@ -170,6 +171,7 @@ section.intro {
     margin: 0 auto;
     padding: 2rem 0;
     border-radius: 10px;
+    box-shadow: 0 10px 20px 9px rgba(0, 0, 0, .2);
 }
 
 .pageviews {
@@ -221,6 +223,26 @@ section.intro {
     width: 2.5rem;
     border-radius: 50%;
     box-shadow: 0 10px 20px 9px var(--soft-cyan);
+    transition: all .2s ease-in-out;
+}
+
+.slider input[type=range]::-webkit-slider-thumb:hover {
+    cursor: pointer;
+    /* transform: scale(1.1); */
+    filter: brightness(1.2);
+}
+
+.slider input[type="range"]::-webkit-slider-thumb:active {
+    background-color: hsl(174, 77%, 40%);
+    cursor: grabbing;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background-color: hsl(174, 77%, 70%);
+}
+
+input[type="range"]::-moz-range-thumb:active {
+    background-color: hsl(174, 77%, 40%);
 }
 
 .toggle-wrapper {
@@ -270,7 +292,12 @@ section.intro {
     bottom: 0;
     background-color: var(--light-grayish-blue-bg);
     border-radius: 3rem;
-    transition: all .2s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.toggle-wrapper .switch .toggler:hover {
+    background-color: var(--strong-cyan);
+    filter: brightness(1.1);
 }
 
 .toggler--on {
@@ -308,6 +335,10 @@ section.intro {
     background-color: var(--light-grayish-red);
     padding: .25rem .5rem;
     border-radius:  1rem;
+}
+
+.toggle-wrapper .discount span {
+    display: none;
 }
 
 .features {
@@ -388,5 +419,13 @@ h2.price-per-time .time {
         height: 3rem;
         padding: .7rem 0rem;
         margin: auto 0;
+    }
+
+    .toggle-wrapper .discount span {
+        display: inline;
+    }
+
+    .slider {
+        margin: 2.5rem 0;
     }
 }

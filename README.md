@@ -30,11 +30,13 @@ Users should be able to:
 
 ### Screenshot
 
+![image](https://github.com/Robertron624/interactive-pricing-component/assets/72587880/f449bed3-dd75-4ead-a945-a828515cc5e4)
+
 
 ### Links
 
 -   Solution URL: [Github Repository](https://github.com/Robertron624/interactive-pricing-component)
--   Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+-   Live Site URL: [Live site URL here](https://incomparable-muffin-43a5a1.netlify.app/)
 
 ## My process
 

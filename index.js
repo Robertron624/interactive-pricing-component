@@ -2,13 +2,13 @@ const prices = [8, 12, 16, 24, 36];
 const pricesAnnual = [72, 108, 144, 216, 324]; // with a 25% discount
 const pageViewValuesMonthly = [10, 50, 100, 500, "1M"];
 const pageViewsValuesAnnual = [600, 900, "1.2M", "1.8M", "2.4M"];
-const timeElements = document.querySelectorAll(".time");
+const timeElements = document.querySelectorAll(".time"); // All the elements with the class time (one for desktop and one for mobile)
 
 let isYearly = false;
 
 const sliderInput = document.getElementById("myRange");
 const price = document.querySelector(".price");
-const priceElements = document.querySelectorAll(".price");
+const priceElements = document.querySelectorAll(".price"); // All the elements with the class price (one for desktop and one for mobile)
 const pageviews = document.querySelector(".pageviews");
 const discountElement = document.querySelector(".discount");
 
@@ -17,8 +17,6 @@ const toggleBackground = document.querySelector(".toggler");
 const toggle_checkbox = document.querySelector(
     ".switch input[type='checkbox']"
 );
-
-console.log("prices -> ", document.querySelectorAll(".price"));
 
 toggle_checkbox.addEventListener("change", function () {
     if (this.checked) {

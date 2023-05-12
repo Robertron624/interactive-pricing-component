@@ -258,7 +258,7 @@ input[type="range"]::-moz-range-thumb:active {
     border-bottom: 1px solid var(--grayish-blue);
 }
 
-.toggle-wrapper .switch .sr-only {
+.sr-only {
     position: absolute;
     width: 1px;
     height: 1px;

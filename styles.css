@@ -177,6 +177,7 @@ section.intro {
 .pageviews {
     color:  var(--grayish-blue);
     font-size: .875rem;
+    font-weight: 700;
 }
 
 .slider {
@@ -427,5 +428,27 @@ h2.price-per-time .time {
 
     .slider {
         margin: 2.5rem 0;
+    }
+
+    .pricing-wrapper > .price-per-time {
+        display: none;
+    }
+
+    .pageviews-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin-inline: auto;
+    }
+
+    .pageviews {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .pageviews-container .price-per-time{
+        display: none;
     }
 }

@@ -2,12 +2,13 @@ const prices = [8, 12, 16, 24, 36];
 const pricesAnnual = [72, 108, 144, 216, 324]; // with a 25% discount
 const pageViewValuesMonthly = [10, 50, 100, 500, "1M"];
 const pageViewsValuesAnnual = [600, 900, "1.2M", "1.8M", "2.4M"];
-const timeElement = document.querySelector(".time");
+const timeElements = document.querySelectorAll(".time");
 
 let isYearly = false;
 
 const sliderInput = document.getElementById("myRange");
 const price = document.querySelector(".price");
+const priceElements = document.querySelectorAll(".price");
 const pageviews = document.querySelector(".pageviews");
 const discountElement = document.querySelector(".discount");
 
@@ -16,6 +17,8 @@ const toggleBackground = document.querySelector(".toggler");
 const toggle_checkbox = document.querySelector(
     ".switch input[type='checkbox']"
 );
+
+console.log("prices -> ", document.querySelectorAll(".price"));
 
 toggle_checkbox.addEventListener("change", function () {
     if (this.checked) {
@@ -32,10 +35,15 @@ toggle_checkbox.addEventListener("change", function () {
             pageViewToDisplay = pageViewToDisplay + " PAGEVIEWS";
         }
 
-        timeElement.innerHTML = " / year";
-        price.innerHTML =
-            "$" +
-            pricesAnnual[sliderInput.value] + ".00";
+        timeElements.forEach((timeElement) => {
+            timeElement.innerHTML = " / year";
+        });
+
+        priceElements.forEach((priceElement) => {
+            priceElement.innerHTML =
+                "$" +
+                pricesAnnual[sliderInput.value] + ".00";
+        })
         pageviews.innerHTML = pageViewToDisplay;
     } else {
         isYearly = false;
@@ -51,8 +59,15 @@ toggle_checkbox.addEventListener("change", function () {
             pageViewToDisplay = pageViewToDisplay + " PAGEVIEWS";
         }
 
-        timeElement.innerHTML = " / month";
-        price.innerHTML = "$" + prices[sliderInput.value] + ".00";
+        timeElements.forEach((timeElement) => {
+            timeElement.innerHTML = " / month";
+        });
+
+        priceElements.forEach((priceElement) => {
+            priceElement.innerHTML =
+                "$" +
+                prices[sliderInput.value] + ".00";
+        });
         pageviews.innerHTML = pageViewToDisplay;
     }
 });
@@ -64,7 +79,9 @@ sliderInput.oninput = function () {
         ? pricesAnnual[value]
         : prices[value];
 
-    price.innerHTML = "$" + priceToDisplay + ".00";
+    priceElements.forEach((priceElement) => {
+        priceElement.innerHTML = "$" + priceToDisplay + ".00";
+    });
 
     let pageViewToDisplay = isYearly
         ? pageViewsValuesAnnual[value]
